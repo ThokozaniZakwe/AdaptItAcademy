@@ -21,6 +21,7 @@ namespace AdaptItAcademy.Areas.Course.Controllers
 
         public IActionResult Index()
         {
+
             return View();
         }
 
