@@ -1,4 +1,6 @@
 using AdaptItAcademy.DataAccess.Data;
+using AdaptItAcademy.DataAccess.Repository;
+using AdaptItAcademy.DataAccess.Repository.IRepository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -38,6 +40,7 @@ namespace AdaptItAcademy
 
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddControllersWithViews();
         }
 

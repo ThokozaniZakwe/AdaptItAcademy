@@ -4,14 +4,16 @@ using AdaptItAcademy.DataAccess.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AdaptItAcademy.DataAccess.Migrations
 {
     [DbContext(typeof(AcademyDbContext))]
-    partial class AcademyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210830081240_TrainingDatesAndDietary")]
+    partial class TrainingDatesAndDietary
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -27,17 +29,13 @@ namespace AdaptItAcademy.DataAccess.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Description")
-                        .IsRequired()
-                        .HasMaxLength(80)
-                        .HasColumnType("nvarchar(80)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("LastDateOfRegistration")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Price")
                         .HasColumnType("nvarchar(max)");
@@ -46,9 +44,7 @@ namespace AdaptItAcademy.DataAccess.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("TrainingVenue")
-                        .IsRequired()
-                        .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("CourseID");
 
@@ -83,43 +79,27 @@ namespace AdaptItAcademy.DataAccess.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("CompanyName")
-                        .IsRequired()
-                        .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)");
-
-                    b.Property<int?>("CourseID")
-                        .HasColumnType("int");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FirstName")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LastName")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PhoneNumber")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PhyAddress")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PostalAddress")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("TrainingID");
-
-                    b.HasIndex("CourseID");
 
                     b.ToTable("Trainings");
                 });
@@ -149,15 +129,6 @@ namespace AdaptItAcademy.DataAccess.Migrations
                     b.HasOne("AdaptItAcademy.DataAccess.Models.Training", null)
                         .WithMany("Dietaries")
                         .HasForeignKey("TrainingID");
-                });
-
-            modelBuilder.Entity("AdaptItAcademy.DataAccess.Models.Training", b =>
-                {
-                    b.HasOne("AdaptItAcademy.DataAccess.Models.Course", "Course")
-                        .WithMany()
-                        .HasForeignKey("CourseID");
-
-                    b.Navigation("Course");
                 });
 
             modelBuilder.Entity("AdaptItAcademy.DataAccess.Models.TrainingDate", b =>
