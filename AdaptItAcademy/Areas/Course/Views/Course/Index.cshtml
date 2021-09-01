@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Course>
+<h2 class="bg-primary rounded my-3 p-2 text-white text-center">Course</h2>
+
+<a class="btn btn-primary" asp-action="Create"><i class="fas fa-plus"> &nbsp; Create New Course</i></a>
+
+<div class="py-4 my-2 rounded">
+    <table class="table table-bordered table-striped" id="tblData" style="width:100%">
+        <thead>
+            <tr>
+                <th>Name</th><th>Training Date(s)</th><th>Training Venue</th><th>Seats Available</th><th>Registraion Closing Date</th><th>Price</th><th>Description</th><th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var course in Model)
+            {
+                <tr>
+                    <td>@course.Name</td>
+                    <td>
+                    @foreach(var t in course.TrainingDates)
+                    {
+                        @t.Date.ToShortDateString();
+                        <br />
+                    }
+                    </td>
+                    <td>@course.TrainingVenue</td>
+                    <td>@course.SeatsLeft</td>
+                    <td>@course.LastDateOfRegistration.ToShortDateString()</td>
+                    <td>@course.Price</td>
+                    <td>@course.Description</td>
+                    <td style="width:20%">
+                        <a class="btn btn-sm btn-outline-warning" asp-action="Edit" asp-route-id="@course.CourseID"><i class="fas fa-user-edit"> Edit</i></a>
+                        <a class="btn btn-sm btn-outline-danger" asp-action="Delete" asp-route-id="@course.CourseID"><i class="fas fa-trash-alt"> Delete</i></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+}

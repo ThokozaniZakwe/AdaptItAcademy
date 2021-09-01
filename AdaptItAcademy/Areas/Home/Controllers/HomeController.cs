@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace AdaptItAcademy.Areas.Course.Controllers
 {
-    [Area("Course")]
+    [Area("Home")]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;

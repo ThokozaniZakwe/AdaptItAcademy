@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AdaptItAcademy.DataAccess.Models
 {
     public class Course
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [Display(Name = "Course Code")]
         public int CourseID { get; set; }
         [Required]
         [MaxLength(50, ErrorMessage = "Please enter a valid course name, maximum 50 characters.")]

@@ -6,6 +6,15 @@ using System.ComponentModel.DataAnnotations;
 
 namespace AdaptItAcademy.DataAccess.Models
 {
+    //enum Dietary
+    //{
+    //    Halaal,
+    //    Vegan, 
+    //    Vegetarian,
+    //    RawFood,
+    //    Atkins,
+    //    Ketogenic
+    //}
     public class Training
     {
         public int TrainingID { get; set; }
@@ -24,6 +33,8 @@ namespace AdaptItAcademy.DataAccess.Models
         [Required(ErrorMessage = "Company name is required")]
         [MaxLength(30, ErrorMessage = "Please enter a valid company name, maximum character is 30")]
         public string CompanyName { get; set; }
+        [Required]
+        public Dietary Dietary { get; set; }
         [Display(Name = "Physical Address")]
         [Required(ErrorMessage = "Physical Address is required")]
         public string PhyAddress { get; set; }
@@ -32,6 +43,5 @@ namespace AdaptItAcademy.DataAccess.Models
         public string PostalAddress { get; set; }
 
         public Course Course { get; set; }
-        public IEnumerable<Dietary> Dietaries { get; set; }
     }
 }
