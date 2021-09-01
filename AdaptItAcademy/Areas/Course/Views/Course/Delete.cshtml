@@ -10,52 +10,37 @@
 <div>
     <h4>Course</h4>
     <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CourseID)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CourseID)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.TrainingVenue)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.TrainingVenue)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.SeatsLeft)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.SeatsLeft)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.LastDateOfRegistration)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.LastDateOfRegistration)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Price)
-        </dd>
-    </dl>
-    
+
+
     <form asp-action="Delete">
+        <div class="form-group">
+            <label asp-for="CourseID"></label>
+            <input asp-for="CourseID" readonly class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Name"></label>
+            <input class="form-control" readonly asp-for="Name" />
+        </div>
+        <div class="form-group">
+            <label asp-for="TrainingVenue"></label>
+            <input asp-for="TrainingVenue" readonly class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="LastDateOfRegistration"></label>
+            <input asp-for="LastDateOfRegistration" readonly class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="SeatsLeft"></label>
+            <input asp-for="SeatsLeft" class="form-control" readonly />
+        </div>
+        <div class="form-group">
+            <label asp-for="Price"></label>
+            <input asp-for="Price" class="form-control" readonly />
+        </div>
+        <div class="form-group">
+            <label asp-for="Description"></label>
+            <textarea asp-for="Description" class="form-control" rows="3" readonly ></textarea>
+        </div>
         <input type="submit" value="Delete" class="btn btn-danger mx-2" />
         <a asp-action="Index" class="btn btn-info">Back</a>
     </form>

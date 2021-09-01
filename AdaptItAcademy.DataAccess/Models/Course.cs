@@ -9,8 +9,8 @@ namespace AdaptItAcademy.DataAccess.Models
 {
     public class Course
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        [Display(Name = "Course Code")]
+        //[DatabaseGenerated(DatabaseGeneratedOption.None)]
+        //[Display(Name = "Course Code")]
         public int CourseID { get; set; }
         [Required]
         [MaxLength(50, ErrorMessage = "Please enter a valid course name, maximum 50 characters.")]

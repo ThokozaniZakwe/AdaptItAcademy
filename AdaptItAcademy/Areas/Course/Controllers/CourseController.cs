@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 using CourseModel = AdaptItAcademy.DataAccess.Models;
 using AdaptItAcademy.DataAccess.Repository;
 using AdaptItAcademy.DataAccess.Repository.IRepository;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AdaptItAcademy.Areas.Course.Controllers
 {
     [Area("Course")]
     [AutoValidateAntiforgeryToken]
+    [Authorize]
     public class CourseController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;

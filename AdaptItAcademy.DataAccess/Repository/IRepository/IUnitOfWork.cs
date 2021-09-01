@@ -9,6 +9,7 @@ namespace AdaptItAcademy.DataAccess.Repository.IRepository
     public interface IUnitOfWork: IDisposable
     {
         ICourseRepository Course { get; }
+        public ITrainingRepository Training { get; set; }
         void Save();
     }
 }

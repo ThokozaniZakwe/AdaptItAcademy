@@ -8,12 +8,13 @@
     <link rel="stylesheet" href="~/lib/datatable/css/datatable.min.css" />
     <link rel="stylesheet" href="~/lib/font-awesome/css/all.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="icon" type="image/png" href="~/favicon-32x32.png" sizes="32x32" />
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-primary border-bottom box-shadow mb-3">
+    <header class="mb-5">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-light border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">AdaptItAcademy</a>
+                <a class="navbar-brand" asp-area="Home" asp-controller="Home" asp-action="Index"><img style="width:70px;height:40px;" src="~/AdaptIt.svg" /></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -21,13 +22,13 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="Home" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-primary" asp-area="Home" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="Course" asp-controller="Course" asp-action="Index">Courses</a>
+                            <a class="nav-link text-primary" asp-area="Course" asp-controller="Course" asp-action="Index">Courses</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="Training" asp-controller="Home" asp-action="Index">Training</a>
+                            <a class="nav-link text-primary" asp-area="Training" asp-controller="Training" asp-action="Index">Training</a>
                         </li>
                     </ul>
                     <partial name="_LoginPartial" />
@@ -36,7 +37,7 @@
         </nav>
     </header>
     <div class="container">
-        <main role="main" class="pb-3">
+        <main role="main" class="pb-3 mt-3">
             @RenderBody()
         </main>
     </div>

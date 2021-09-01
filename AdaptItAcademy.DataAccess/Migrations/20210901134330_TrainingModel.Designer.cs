@@ -4,14 +4,16 @@ using AdaptItAcademy.DataAccess.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AdaptItAcademy.DataAccess.Migrations
 {
     [DbContext(typeof(AcademyDbContext))]
-    partial class AcademyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210901134330_TrainingModel")]
+    partial class TrainingModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -55,6 +57,21 @@ namespace AdaptItAcademy.DataAccess.Migrations
                     b.ToTable("Courses");
                 });
 
+            modelBuilder.Entity("AdaptItAcademy.DataAccess.Models.Dietary", b =>
+                {
+                    b.Property<int>("DietaryID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("DietaryID");
+
+                    b.ToTable("Dietary");
+                });
+
             modelBuilder.Entity("AdaptItAcademy.DataAccess.Models.Training", b =>
                 {
                     b.Property<int>("TrainingID")
@@ -70,7 +87,7 @@ namespace AdaptItAcademy.DataAccess.Migrations
                     b.Property<int?>("CourseID")
                         .HasColumnType("int");
 
-                    b.Property<int>("Dietary")
+                    b.Property<int?>("DietaryID")
                         .HasColumnType("int");
 
                     b.Property<string>("Email")
@@ -104,6 +121,8 @@ namespace AdaptItAcademy.DataAccess.Migrations
 
                     b.HasIndex("CourseID");
 
+                    b.HasIndex("DietaryID");
+
                     b.ToTable("Trainings");
                 });
 
@@ -133,7 +152,13 @@ namespace AdaptItAcademy.DataAccess.Migrations
                         .WithMany()
                         .HasForeignKey("CourseID");
 
+                    b.HasOne("AdaptItAcademy.DataAccess.Models.Dietary", "Dietary")
+                        .WithMany()
+                        .HasForeignKey("DietaryID");
+
                     b.Navigation("Course");
+
+                    b.Navigation("Dietary");
                 });
 
             modelBuilder.Entity("AdaptItAcademy.DataAccess.Models.TrainingDate", b =>

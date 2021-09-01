@@ -16,9 +16,11 @@ namespace AdaptItAcademy.DataAccess.Repository
         {
             academyDb = db;
             Course = new CourseRepository(academyDb);
+            Training = new TrainingRepository(academyDb);
         }
 
         public ICourseRepository Course { get; private set; }
+        public ITrainingRepository Training { get; set; }
 
         public void Dispose()
         {

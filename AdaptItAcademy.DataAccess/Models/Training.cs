@@ -6,15 +6,15 @@ using System.ComponentModel.DataAnnotations;
 
 namespace AdaptItAcademy.DataAccess.Models
 {
-    //enum Dietary
-    //{
-    //    Halaal,
-    //    Vegan, 
-    //    Vegetarian,
-    //    RawFood,
-    //    Atkins,
-    //    Ketogenic
-    //}
+    public enum Dietary
+    {
+        Halaal,
+        Vegan,
+        Vegetarian,
+        RawFood,
+        Atkins,
+        Ketogenic
+    }
     public class Training
     {
         public int TrainingID { get; set; }
