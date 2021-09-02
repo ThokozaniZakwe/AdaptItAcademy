@@ -30,6 +30,11 @@ namespace AdaptItAcademy.Areas.Training.Controllers
         [HttpGet]
         public IActionResult Edit(int id)
         {
+            ViewBag.Dietary = new SelectList(Enum.GetValues(typeof(Dietary)).Cast<Dietary>().Select(v => new SelectListItem
+            {
+                Text = v.ToString(),
+                Value = ((int)v).ToString()
+            }).ToList(), "Value", "Text");
             return View(_unitOfWork.Training.Get(id));
         }
 

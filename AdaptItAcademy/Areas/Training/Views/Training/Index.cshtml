@@ -2,7 +2,7 @@
 
 <h1 class="bg-secondary rounded text-white text-center p-2 my-5">Trainings</h1>
 
-<a class="btn btn-primary" asp-action="Create"><i class="fas fa-graduation-cap"></i> Add Training</a>
+<a class="btn btn-primary mb-3" asp-action="Create"><i class="fas fa-graduation-cap"></i> Add Training</a>
 
 <table class="table table-bordered table-sm table-striped my-2">
     <thead class="thead-dark">
@@ -32,8 +32,8 @@
                     <td>@t.PhyAddress</td>
                     <td>@t.PostalAddress</td>
                     <td style="width:15%">
-                        <a class="btn btn-warning btn-sm" asp-action="Edit"><i class="fas fa-user-edit"></i> Edit</a>
-                        <a class="btn btn-danger btn-sm" asp-action="Delete"><i class="fas fa-trash-alt"></i> Delete</a>
+                        <a class="btn btn-warning btn-sm" asp-action="Edit" asp-route-id="@t.TrainingID"><i class="fas fa-user-edit"></i> Edit</a>
+                        <a class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@t.TrainingID"><i class="fas fa-trash-alt"></i> Delete</a>
                     </td>
                 </tr>
             }
