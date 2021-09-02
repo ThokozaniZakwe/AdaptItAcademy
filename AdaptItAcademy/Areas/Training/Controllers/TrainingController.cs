@@ -8,11 +8,13 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using TrainingModel = AdaptItAcademy.DataAccess.Models;
 using AdaptItAcademy.DataAccess.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AdaptItAcademy.Areas.Training.Controllers
 {
     [Area("Training")]
     [AutoValidateAntiforgeryToken]
+    [Authorize]
     public class TrainingController : Controller
     {
 

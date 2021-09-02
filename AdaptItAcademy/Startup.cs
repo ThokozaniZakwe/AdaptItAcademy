@@ -15,6 +15,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AdaptItAcademy.DataAccess.Models;
 
 namespace AdaptItAcademy
 {
@@ -78,6 +79,7 @@ namespace AdaptItAcademy
                     pattern: "{area=Home}/{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
+            IdentitySeedData.EnsurePopulated(app);
         }
     }
 }

@@ -1,12 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using CourseModel = AdaptItAcademy.DataAccess.Models;
-using AdaptItAcademy.DataAccess.Repository;
 using AdaptItAcademy.DataAccess.Repository.IRepository;
 using Microsoft.AspNetCore.Authorization;
+using AdaptItAcademy.DataAccess.Models;
 
 namespace AdaptItAcademy.Areas.Course.Controllers
 {

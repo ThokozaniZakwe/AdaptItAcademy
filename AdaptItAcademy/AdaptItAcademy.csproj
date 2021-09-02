@@ -21,9 +21,4 @@
     <ProjectReference Include="..\AdaptItAcademy.WebAPI\AdaptItAcademy.WebAPI.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Areas\Course\Models\" />
-    <Folder Include="Areas\Training\Models\" />
-  </ItemGroup>
-
 </Project>
