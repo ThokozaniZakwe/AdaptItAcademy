@@ -51,7 +51,7 @@ namespace AdaptItAcademy
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, AcademyDbContext context)
         {
             if (env.IsDevelopment())
             {
@@ -79,6 +79,7 @@ namespace AdaptItAcademy
                     pattern: "{area=Home}/{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
+            ModelsSeedData.EnsureSeeded(context);
             IdentitySeedData.EnsurePopulated(app);
         }
     }
