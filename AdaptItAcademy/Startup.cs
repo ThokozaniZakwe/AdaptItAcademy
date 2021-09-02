@@ -16,6 +16,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AdaptItAcademy.DataAccess.Models;
+using Microsoft.AspNetCore.Identity.UI.Services;
 
 namespace AdaptItAcademy
 {
@@ -48,6 +49,7 @@ namespace AdaptItAcademy
             {
                 opts.JsonSerializerOptions.IgnoreNullValues = true;
             });
+            services.AddScoped<IEmailSender, ConsoleEmailSender>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
