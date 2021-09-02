@@ -29,7 +29,6 @@ namespace AdaptItAcademy.DataAccess.Repository
                 objFromDb.LastName = training.LastName;
                 objFromDb.PhoneNumber = training.PhoneNumber;
                 objFromDb.CompanyName = training.CompanyName;
-                objFromDb.Course = training.Course;
                 objFromDb.Email = training.Email;
                 objFromDb.Dietary = training.Dietary;
 

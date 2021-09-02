@@ -24,7 +24,7 @@ namespace AdaptItAcademy.Areas.Training.Controllers
         }
         public IActionResult Index()
         {
-            return View(_unitOfWork.Training.GetAll("Course"));
+            return View(_unitOfWork.Training.GetAll());
         }
 
         [HttpGet]

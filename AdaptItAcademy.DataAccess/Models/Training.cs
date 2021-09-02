@@ -41,7 +41,5 @@ namespace AdaptItAcademy.DataAccess.Models
         [Required(ErrorMessage = "Postal Address is required")]
         [Display(Name = "Postal Address")]
         public string PostalAddress { get; set; }
-
-        public Course Course { get; set; }
     }
 }
