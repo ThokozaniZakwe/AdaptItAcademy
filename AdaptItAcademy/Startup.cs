@@ -17,6 +17,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AdaptItAcademy.DataAccess.Models;
 using Microsoft.AspNetCore.Identity.UI.Services;
+using Microsoft.OpenApi.Models;
 
 namespace AdaptItAcademy
 {
@@ -50,6 +51,10 @@ namespace AdaptItAcademy
                 opts.JsonSerializerOptions.IgnoreNullValues = true;
             });
             services.AddScoped<IEmailSender, ConsoleEmailSender>();
+            services.AddSwaggerGen(opts =>
+            {
+                opts.SwaggerDoc("v1", new OpenApiInfo { Title = "AdaptIt WebApi", Version = "v1" });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -81,6 +86,12 @@ namespace AdaptItAcademy
                     pattern: "{area=Home}/{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
+            app.UseSwagger();
+            app.UseSwaggerUI(options =>
+            {
+                options.SwaggerEndpoint("/swagger/v1/swagger.json", "AdaptIt WebApi");
+            });
+
             ModelsSeedData.EnsureSeeded(context);
             IdentitySeedData.EnsurePopulated(app);
         }
